@@ -333,7 +333,7 @@
                         if (item.count === 0) zeroList++
                         if (data.chart_type === 'pie') {
                             content.labels.push(item.id)
-                            content.values.push(item.count)
+                            if (item.count !== 0) content.values.push(item.count)
                         } else {
                             const color = '#3A84FF'
                             content.marker.color.push(color)
@@ -418,6 +418,7 @@
                 return returnData
             },
             drawCharts (item) {
+                console.log(item)
                 const layConfig = {
                     type: 'category',
                     nticks: item.x_axis_count,
